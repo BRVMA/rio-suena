@@ -1,0 +1,71 @@
+---
+import Main from '../layouts/Main.astro';
+import { Image } from 'astro:assets';
+
+import fondo from '../img/fondo-inicio.png';
+import logo from '../img/logo/logo-circular-blanco.svg';
+import ig from '../img/rrss/ig.svg';
+import tiktok from '../img/rrss/tiktok.svg';
+import fb from '../img/rrss/fb.svg';
+---
+
+<Main title="Inicio">
+    <main class="flex flex-col items-center px-4 lg:px-16 2xl:px-40 py-12 text-white">
+        <Image src={fondo} alt="Imagen de fondo" class="absolute top-0 bottom-0 -z-10 w-full h-full min-h-screen object-cover" />
+
+        <Image src={logo} alt="Logo" class="w-80" />
+
+        <div class="flex flex-col lg:flex-row justify-between items-center mt-6 w-full text-lg sm:text-[1.32rem]">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start">
+                <svg
+                    version="1.1"
+                    width="80"
+                    height="24.25"
+                    viewBox="0 0 40 14"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                >
+                    <line x1="1" x2="39" y1="9" y2="9" stroke-linecap="round" />
+                </svg>
+                
+                <div class="ml-1 sm:w-96 text-center lg:text-left">
+                    <p class="mb-1.5 font-semibold">Documentación para el</p>
+                    <p class="font-zighead text-[1.6rem] sm:text-3xl leading-none">RESCATE DEL PATRIMONIO</p>
+                    <p>
+                        inmaterial de la Región de los Ríos,
+                        valorizando e inmortalizando las
+                        prácticas culturales en el territorio.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center mt-10 lg:mt-0">
+                <svg
+                    version="1.1"
+                    width="45"
+                    height="24.25"
+                    viewBox="0 0 40 14"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    class="mb-2"
+                >
+                    <line x1="1" x2="39" y1="9" y2="9" stroke-linecap="round" />
+                </svg>
+
+                <p class="font-zighead leading-none">Escrito por</p>
+                <p class="mb-6">Marcela Bruna y Matías Riquelme</p>
+
+                <p class="font-zighead leading-none">Producción</p>
+                <p>Catalina Torres</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-stretch mt-14 lg:mt-20 w-48 h-7">
+            <Image src={ig} alt="Instagram" class="w-auto" />
+            <Image src={tiktok} alt="Tik Tok" class="w-auto" />
+            <Image src={fb} alt="Facebook" class="w-auto" />
+        </div>
+    </main>
+</Main>
