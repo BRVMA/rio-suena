@@ -1,0 +1,24 @@
+---
+const { clase } = Astro.props;
+---
+
+<div class:list={['flex flex-col', clase]}>
+    <svg
+        version="1.1"
+        width="45"
+        height="24.25"
+        viewBox="0 0 40 14"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor"
+        class="mb-2"
+    >
+        <line x1="1" x2="39" y1="9" y2="9" stroke-linecap="round" />
+    </svg>
+
+    <p class="font-zighead leading-none">Escrito por</p>
+    <p class="mb-6">Marcela Bruna y Matías Riquelme</p>
+
+    <p class="font-zighead leading-none">Producción</p>
+    <p>Catalina Torres</p>
+</div>

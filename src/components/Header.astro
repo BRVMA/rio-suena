@@ -1,0 +1,30 @@
+---
+import MenuSVG from './icons/MenuSVG.astro';
+---
+
+<header>
+    <button id="menu-btn" class="flex items-center ml-auto px-6 py-4 text-xl">
+        <MenuSVG clase="h-5 mr-3" />
+        MENÚ
+    </button>
+
+    <dialog id="menu" class="open:animate-fade-in">
+        <form method="dialog">
+            <button type="submit">
+                X
+            </button>
+        </form>
+
+        <nav>
+            <ol>
+                <li>Inicio</li>
+            </ol>
+        </nav>
+    </dialog>
+</header>
+
+<script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+        document.getElementById('menu').show();
+    });
+</script>
