@@ -1,0 +1,35 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image } from 'astro:assets';
+
+const { blok } = Astro.props;
+const content = renderRichText(blok.body);
+---
+
+<article
+    {...storyblokEditable(blok)}
+    class={`flex flex-col p-8 pb-4 w-full rounded-[3rem] shadow-lg space-y-4 post`}
+    style={{backgroundColor: blok.color}}
+>
+    {blok.image.id && (
+        <Image
+            src={blok.image.filename + '/m/384x0'}
+            alt={blok.image.alt}
+            width="384"
+            height="216.317"
+            class="rounded-[2rem]"
+        />
+    )}
+
+    <h2 class="text-3xl uppercase">{blok.title}</h2>
+
+    <Fragment set:html={content} class="post" />
+
+    <time datetime={blok.date} class="self-end text-sm">
+        {(new Date(blok.date)).toLocaleDateString('es-CL', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+        })}
+    </time>
+</article>

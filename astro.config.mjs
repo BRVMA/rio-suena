@@ -1,9 +1,27 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+import tailwind from '@astrojs/tailwind';
+import storyblok from '@storyblok/astro';
+import { loadEnv } from 'vite';
 
-import svelte from "@astrojs/svelte";
+const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
-// https://astro.build/config
+import svelte from '@astrojs/svelte';
+
 export default defineConfig({
-  integrations: [tailwind(), svelte()]
+  integrations: [
+    tailwind(),
+    storyblok({
+      accessToken: env.STORYBLOK_TOKEN,
+      components: {
+        post: 'storyblok/post',
+      },
+      apiOptions: {
+        region: 'us',
+      },
+    }),
+    svelte(),
+  ],
+  image: {
+    domains: ['storyblok.com'],
+  },
 });

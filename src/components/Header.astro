@@ -1,30 +1,68 @@
 ---
 import MenuSVG from './icons/MenuSVG.astro';
+import XSVG from './icons/XSVG.astro';
+
+const pages = [
+    {
+        path: 'inicio',
+        label: 'Inicio',
+    },
+    {
+        path: 'capitulos',
+        label: 'Capítulos',
+    },
+    {
+        path: 'nosotros',
+        label: 'Nosotros',
+    },
+    {
+        path: 'blog',
+        label: 'Blog',
+    },
+];
 ---
 
-<header>
-    <button id="menu-btn" class="flex items-center ml-auto px-6 py-4 text-xl">
+<header class="text-2xl uppercase">
+    <button id="menu-btn" class="md:hidden flex items-center ml-auto px-6 py-4 text-xl">
         <MenuSVG clase="h-5 mr-3" />
         MENÚ
     </button>
 
-    <dialog id="menu" class="open:animate-fade-in">
-        <form method="dialog">
-            <button type="submit">
-                X
+    <dialog id="menu" class="md:hidden bg-black bg-opacity-75 text-white rounded-2xl backdrop:bg-black backdrop:bg-opacity-40 open:animate-fade-in">
+        <form method="dialog" class="text-end">
+            <button type="submit" class="p-4">
+                <XSVG clase="w-6" />
             </button>
         </form>
 
-        <nav>
-            <ol>
-                <li>Inicio</li>
+        <nav class="p-12 pt-6">
+            <ol class="space-y-6">
+                {pages.map(page => (
+                    <li>
+                        <a href={`/${page.path}`}>
+                            {page.label}
+                        </a>
+                    </li>
+                ))}
             </ol>
         </nav>
     </dialog>
+
+    <nav class="hidden md:block p-8">
+        <ol class="flex justify-center space-x-16">
+            {pages.map(page => (
+                <li>
+                    <a href={`/${page.path}`}>
+                        {page.label}
+                    </a>
+                </li>
+            ))}
+        </ol>
+    </nav>
 </header>
 
 <script>
-    document.getElementById('menu-btn').addEventListener('click', () => {
-        document.getElementById('menu').show();
+    document.getElementById('menu-btn')?.addEventListener('click', () => {
+        document.getElementById('menu')?.showModal();
     });
 </script>

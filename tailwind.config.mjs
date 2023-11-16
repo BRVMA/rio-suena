@@ -23,7 +23,7 @@ export default {
                 }
             },
             animation: {
-                'fade-in': 'fade-in 150ms ease',
+                'fade-in': 'fade-in 300ms ease',
             },
         },
 	},
