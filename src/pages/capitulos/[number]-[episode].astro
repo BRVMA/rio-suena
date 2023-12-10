@@ -1,0 +1,97 @@
+---
+import Heading from '../../components/Heading.astro';
+import Layout from '../../layouts/Layout.astro';
+import EpisodeList from '../../components/EpisodeList.svelte';
+import { Image } from 'astro:assets';
+import { fade } from 'astro:transitions';
+import { useStoryblokApi } from '@storyblok/astro';
+
+import play from '../../img/play.svg';
+
+export async function getStaticPaths() {
+    const storyblokApi = useStoryblokApi();
+
+    const { data } = await storyblokApi.get('cdn/stories', {
+        version: import.meta.env.DEV ? 'draft' : 'published',
+        content_type: 'episode',
+    });
+
+    return data.stories.map((story) => {
+        return {
+            params: {
+                number: story.content.number,
+                episode: story.slug,
+            }
+        };
+    });
+}
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+    content_type: 'episode',
+    sort_by: 'content.number:asc',
+});
+
+const episodes = data.stories.map((story) => {
+    return {
+        number: story.content.number,
+        slug: story.slug,
+        artist: story.content.artist,
+        id: story.content.id,
+        title: story.name,
+        image: story.content.image,
+        description: story.content.description,
+    };
+});
+
+const { number } = Astro.params;
+const episode = episodes[number - 1];
+---
+
+<Layout bodyClass="bg-black text-white flex flex-col" mainClass="flex-grow pb-4">
+    <Image
+        src={episode.image.filename}
+        alt="episode thumbnail"
+        width="1920"
+        height="1080"
+        class="absolute inset-0 -z-10 w-full h-full object-cover brightness-75 contrast-75"
+        transition:animate={fade({ duration: '0.5s' })}
+    />
+
+    <div class="flex-grow flex flex-col items-stretch xl:grid grid-cols-[2fr_1fr_2fr] justify-items-center w-full">
+        <div transition:animate={fade({ duration: '0.5s' })} class="w-full">
+            <Heading>CAPÍTULOS</Heading>
+
+            <div class="mt-4 text-xl xl:text-3xl uppercase">
+                <p class="font-light leading-tight">{episode.title}</p>
+                <p class="font-bold">{episode.artist}</p>
+            </div>
+
+            <p class="hidden xl:block mt-4">
+                {episode.description}
+            </p>
+        </div>
+
+        <button class="p-12 self-center">
+            <Image
+                src={play}
+                alt="botón reproducir"
+                width="64"
+                height="64"
+            />
+        </button>
+
+        <p
+            class="xl:hidden self-start mb-4 text-sm"
+            transition:animate={fade({ duration: '0.5s' })}
+        >
+            {episode.description}
+        </p>
+
+        <div class="flex-grow grid place-items-end w-full">
+            <EpisodeList {episodes} client:load transition:persist />
+        </div>
+    </div>
+</Layout>

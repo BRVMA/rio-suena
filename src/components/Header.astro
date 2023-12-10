@@ -65,8 +65,10 @@ const pages = [
     </nav>
 </header>
 
-<script>
-    document.getElementById('menu-btn')?.addEventListener('click', () => {
-        document.getElementById('menu')?.showModal();
+<script is:inline>
+    document.addEventListener('astro:page-load', () => {
+        document.getElementById('menu-btn')?.addEventListener('click', () => {
+            document.getElementById('menu')?.showModal();
+        });
     });
 </script>

@@ -1,32 +1,4 @@
----
-import Header from "../components/Header.astro";
-import Heading from "../components/Heading.astro";
-import Layout from "../layouts/Layout.astro";
-
-import '../styles/main.css';
-import favicon from '../img/logo/logo-llave-azul.svg';
----
-
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={favicon.src}/>
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Capítulos</title>
-	</head>
-	<body class="leading-snug">
-        <Header />
-
-        <main class="flex flex-col items-center px-4 lg:px-16 2xl:px-40 pt-4 pb-12">
-            <Heading>CAPÍTULOS</Heading>
-
-            <div id="player"></div>
-        </main>
-	</body>
-</html>
-
-<script is:inline>
+<script>
     // 2. This code loads the IFrame Player API code asynchronously.
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
@@ -66,3 +38,5 @@ import favicon from '../img/logo/logo-llave-azul.svg';
 
     }
 </script>
+
+<div id="player"></div>

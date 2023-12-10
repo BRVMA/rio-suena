@@ -1,0 +1,25 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import Layout from '../../layouts/Layout.astro';
+import Heading from '../../components/Heading.astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+    sort_by: 'content.number:asc',
+    content_type: 'episode',
+});
+
+if ( data.stories.length > 0 ) {
+    const first = data.stories[0];
+
+    return Astro.redirect(`/capitulos/${first.content.number}-${first.slug}`);
+}
+---
+
+<Layout title="Capítulos" bodyClass="bg-black text-white">
+    <Heading clase="self-start">CAPÍTULOS</Heading>
+
+    <p>No hay capítulos</p>
+</Layout>

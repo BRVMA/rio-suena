@@ -1,6 +1,7 @@
 ---
-const { title, bodyClass } = Astro.props;
+const { title, bodyClass, mainClass } = Astro.props;
 
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import favicon from '../img/logo/logo-llave-azul.svg';
 import '../styles/main.css';
@@ -13,11 +14,12 @@ import '../styles/main.css';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+        <ViewTransitions />
 	</head>
-	<body class:list={['relative leading-snug', bodyClass]}>
+	<body class:list={['relative min-h-screen leading-snug', bodyClass]}>
         <Header />
 
-        <main class="flex flex-col items-center px-4 lg:px-16 2xl:px-40 pt-4 pb-12">
+        <main class:list={['flex flex-col items-center px-4 lg:px-16 2xl:px-32 pb-12', mainClass]}>
             <slot />
         </main>
 	</body>
