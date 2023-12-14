@@ -60,7 +60,7 @@ const episode = episodes[number - 1];
         transition:animate={fade({ duration: '0.5s' })}
     />
 
-    <div class="flex-grow flex flex-col items-stretch lg:grid grid-cols-[2fr_1fr_2fr] justify-items-center sm:max-w-xl lg:max-w-full w-full">
+    <div class="flex-grow flex flex-col items-stretch lg:grid grid-cols-[2fr_1fr_2fr] justify-items-center w-full">
         <div transition:animate={fade({ duration: '0.5s' })} class="w-full">
             <Heading>CAPÍTULOS</Heading>
 
@@ -74,7 +74,7 @@ const episode = episodes[number - 1];
             </p>
         </div>
 
-        <button class="p-12 sm:p-24 lg:p-12 self-center">
+        <button class="sm:mb-24 p-12 sm:p-24 lg:p-12 self-center">
             <Image
                 src={play}
                 alt="botón reproducir"
@@ -90,8 +90,16 @@ const episode = episodes[number - 1];
             {episode.description}
         </p>
 
-        <div class="flex-grow sm:absolute right-0 bottom-0">
+        <div class="flex-grow coso right-0 bottom-0 sm:w-full md:w-auto">
             <EpisodeList {episodes} client:load transition:persist />
         </div>
     </div>
 </Layout>
+
+<style>
+    .coso {
+        @media (min-width: 640px) and (min-height: 688px) {
+            position: absolute;
+        }
+    }
+</style>
