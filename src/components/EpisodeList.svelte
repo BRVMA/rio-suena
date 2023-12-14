@@ -23,7 +23,7 @@
     });
 </script>
 
-<div class="flex flex-col px-6 py-4 max-w-lg bg-black bg-opacity-40 rounded-3xl">
+<div class="flex sm:hidden flex-col px-6 py-4 w-full lg:max-w-lg bg-black bg-opacity-40 rounded-3xl">
     <h2 class="mb-1 font-medium text-2xl">CAPÍTULOS</h2>
     <h3 class="text-sm">TEMPORADA 1</h3>
 

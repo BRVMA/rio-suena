@@ -60,21 +60,21 @@ const episode = episodes[number - 1];
         transition:animate={fade({ duration: '0.5s' })}
     />
 
-    <div class="flex-grow flex flex-col items-stretch xl:grid grid-cols-[2fr_1fr_2fr] justify-items-center w-full">
+    <div class="flex-grow flex flex-col items-stretch lg:grid grid-cols-[2fr_1fr_2fr] justify-items-center sm:max-w-xl lg:max-w-full w-full">
         <div transition:animate={fade({ duration: '0.5s' })} class="w-full">
             <Heading>CAPÍTULOS</Heading>
 
-            <div class="mt-4 text-xl xl:text-3xl uppercase">
+            <div class="mt-4 text-xl lg:text-3xl uppercase">
                 <p class="font-light leading-tight">{episode.title}</p>
                 <p class="font-bold">{episode.artist}</p>
             </div>
 
-            <p class="hidden xl:block mt-4">
+            <p class="hidden sm:block mt-4">
                 {episode.description}
             </p>
         </div>
 
-        <button class="p-12 self-center">
+        <button class="p-12 sm:p-24 lg:p-12 self-center">
             <Image
                 src={play}
                 alt="botón reproducir"
@@ -84,13 +84,13 @@ const episode = episodes[number - 1];
         </button>
 
         <p
-            class="xl:hidden self-start mb-4 text-sm"
+            class="sm:hidden self-start mb-4 text-sm"
             transition:animate={fade({ duration: '0.5s' })}
         >
             {episode.description}
         </p>
 
-        <div class="flex-grow grid place-items-end w-full">
+        <div class="flex-grow sm:absolute right-0 bottom-0">
             <EpisodeList {episodes} client:load transition:persist />
         </div>
     </div>
