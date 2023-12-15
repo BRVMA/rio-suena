@@ -7,6 +7,8 @@ import { fade } from 'astro:transitions';
 import { useStoryblokApi } from '@storyblok/astro';
 
 import play from '../../img/play.svg';
+import XSVG from '../../components/icons/XSVG.astro';
+import Player from '../../components/Player.astro';
 
 export async function getStaticPaths() {
     const storyblokApi = useStoryblokApi();
@@ -74,7 +76,7 @@ const episode = episodes[number - 1];
             </p>
         </div>
 
-        <button class="sm:mb-24 p-12 sm:p-24 lg:p-12 self-center">
+        <button id="play" class="sm:mb-24 p-12 sm:p-24 lg:p-12 self-center">
             <Image
                 src={play}
                 alt="botón reproducir"
@@ -94,6 +96,18 @@ const episode = episodes[number - 1];
             <EpisodeList {episodes} client:load transition:persist />
         </div>
     </div>
+
+    <dialog id="player-modal" class="m-4 p-4 w-full h-full open:flex flex-col items-stretch bg-black bg-opacity-75 text-white rounded-2xl backdrop:bg-black backdrop:bg-opacity-40 open:animate-fade-in">
+        <form method="dialog" class="mb-2 text-end">
+            <button type="submit" class="p-4">
+                <XSVG clase="w-6" />
+            </button>
+        </form>
+
+        <div class="grow">
+            <Player videoId={episode.id} />
+        </div>
+    </dialog>
 </Layout>
 
 <style>
@@ -103,3 +117,14 @@ const episode = episodes[number - 1];
         }
     }
 </style>
+
+<script is:inline>
+    const playerModal = document.getElementById('player-modal');
+
+    document.addEventListener('astro:page-load', () => {
+        document.getElementById('play')?.addEventListener('click', () => {
+            playerModal.showModal();
+            playerModal.dispatchEvent(new Event('open-modal'));
+        });
+    });
+</script>

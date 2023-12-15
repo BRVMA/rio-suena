@@ -34,8 +34,8 @@
 <div
     class={'flex flex-col lg:mr-16 2xl:mr-32 sm:mb-4 px-6 py-4 w-full bg-black bg-opacity-40 rounded-3xl ' + (open ? 'lg:max-w-lg' : 'sm:max-w-3xl bg-transparent')}
 >
-    <div class="flex justify-between sm:justify-end">
-        <div class="sm:hidden">
+    <div class={'flex justify-between ' + (open ? '' : 'sm:justify-end')}>
+        <div class={open ? '' : 'sm:hidden'}>
             <h2 class="mb-1 font-medium text-2xl">CAPÍTULOS</h2>
             <h3 class="text-sm">TEMPORADA 1</h3>
         </div>
