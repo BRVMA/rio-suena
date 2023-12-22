@@ -1,32 +1,54 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { useStorystoryApi, storystoryEditable, renderRichText } from '@storystory/astro';
 import { Image } from 'astro:assets';
 
-const { blok } = Astro.props;
-const content = renderRichText(blok.body);
+export async function getStaticPaths() {
+    const storystoryApi = useStorystoryApi();
+
+    const { data } = await storystoryApi.get('cdn/stories', {
+        version: import.meta.env.DEV ? 'draft' : 'published',
+        content_type: 'post',
+    });
+
+    return data.stories.map((story) => {
+        return {
+            params: { slug: story.slug },
+        };
+    });
+}
+
+const sbApi = useStorystoryApi();
+const { slug } = Astro.params;
+const { data } = await sbApi.get(`cdn/stories/blog/${slug}`, {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+console.log(data);
+
+const story = data.story;
+const body = renderRichText(data.story);
 ---
 
 <article
-    {...storyblokEditable(blok)}
-    class={`flex flex-col p-8 pb-4 w-full rounded-[3rem] shadow-lg space-y-4 post`}
-    style={{backgroundColor: blok.color}}
+    {...storystoryEditable(story)}
+    class="flex flex-col gap-4 p-8 pb-4 w-full bg-[#dee9ec] rounded-[3rem] shadow-lg post overflow-hidden"
 >
-    {blok.image.id && (
-        <Image
-            src={blok.image.filename + '/m/384x0'}
-            alt={blok.image.alt}
-            width="384"
-            height="216.317"
-            class="rounded-[2rem]"
-        />
-    )}
+    <Image
+        src={`${story.image.filename}/m/1280x720`}
+        alt={story.image.alt}
+        width="1280"
+        height="720"
+        class="rounded-[2rem]"
+    />
 
-    <h2 class="text-3xl uppercase">{blok.title}</h2>
+    <h2 class="text-3xl uppercase">{data.title}</h2>
 
-    <Fragment set:html={content} class="post" />
+    <div class="post">
+        <Fragment set:html={body} />
+    </div>
 
-    <time datetime={blok.date} class="self-end text-sm">
-        {(new Date(blok.date)).toLocaleDateString('es-CL', {
+    <time datetime={data.date} class="self-end mt-auto text-sm">
+        {(new Date(data.date)).toLocaleDateString('es-CL', {
             day: '2-digit',
             month: 'short',
             year: 'numeric',

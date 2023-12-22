@@ -1,0 +1,68 @@
+---
+import { useStoryblokApi, storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Image } from 'astro:assets';
+import Blog from '../../layouts/Blog.astro';
+
+export async function getStaticPaths() {
+    const storyblokApi = useStoryblokApi();
+
+    const { data } = await storyblokApi.get('cdn/stories', {
+        version: import.meta.env.DEV ? 'draft' : 'published',
+        content_type: 'post',
+    });
+
+    return data.stories.map((story) => {
+        return {
+            params: { slug: story.slug },
+        };
+    });
+}
+
+const sbApi = useStoryblokApi();
+const { slug } = Astro.params;
+const { data } = await sbApi.get(`cdn/stories/blog/${slug}`, {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const story = data.story;
+const body = renderRichText(story.content.body);
+const date = story.published_at ?? story.created_at;
+---
+
+<Blog title={story.name} linkBack={true}>
+    <article
+        {...storyblokEditable(story)}
+        class="flex flex-col gap-4 p-8 pb-4 max-w-5xl bg-[#dee9ec] rounded-[3rem] shadow-lg post overflow-hidden"
+    >
+        <Image
+            src={`${story.content.image.filename}/m/960x540`}
+            alt={story.content.image.alt}
+            width="960"
+            height="540"
+            class="w-full rounded-[2rem]"
+        />
+
+        <h2 class="text-3xl lg:text-4xl uppercase">{story.name}</h2>
+
+        <div class="post my-4">
+            <Fragment set:html={body} />
+        </div>
+
+        <time datetime={date} class="self-end mt-auto text-sm">
+            {(new Date(date)).toLocaleDateString('es-CL', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+            })}
+        </time>
+    </article>
+</Blog>
+
+<style>
+    .post {
+        @media (min-width: 1024px) {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+    }
+</style>

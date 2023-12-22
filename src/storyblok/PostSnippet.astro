@@ -1,0 +1,62 @@
+---
+import { renderRichText } from '@storyblok/astro';
+import { Image } from 'astro:assets';
+
+const { blok, isDoubleRow } = Astro.props;
+const content = renderRichText(blok.body);
+---
+
+<article
+    class="flex flex-col gap-4 p-8 pb-4 w-full h-full rounded-[3rem] shadow-lg"
+    style={{backgroundColor: blok.color}}
+>
+    {blok.image.id && (
+        <Image
+            src={`${blok.image.filename}/m/384x${isDoubleRow ? 520 : 200}`}
+            alt={blok.image.alt}
+            width="384"
+            height={isDoubleRow ? 520 : 220}
+            class="rounded-[2rem]"
+        />
+    )}
+
+        <h2
+            class:list={[
+                'text-3xl leading-none uppercase',
+                { 'overflow-hidden': !isDoubleRow },
+            ]}
+        >
+            <a href={`/blog/${blok.slug}`}>
+                {blok.title}
+            </a>
+        </h2>
+
+    {isDoubleRow && (
+        <div class="shrink overflow-hidden post">
+            <Fragment set:html={content} />
+        </div>
+    )}
+
+    <time datetime={blok.date} class="self-end mt-auto text-sm">
+        {(new Date(blok.date)).toLocaleDateString('es-CL', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+        })}
+    </time>
+</article>
+
+<script>
+    const titles = document.getElementsByTagName('h2');
+
+    for (const title of titles) {
+        if (title.scrollHeight > title.offsetHeight) {
+            let fontSize = parseInt(window.getComputedStyle(title).fontSize);
+            const offsetHeight = title.offsetHeight;
+
+            do {
+                title.style.fontSize = `${--fontSize}px`;
+            } while (title.scrollHeight > offsetHeight)
+        }
+    }
+</script>

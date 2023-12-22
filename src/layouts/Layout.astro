@@ -1,5 +1,5 @@
 ---
-const { title, bodyClass, mainClass } = Astro.props;
+const { transition, title, bodyClass, mainClass } = Astro.props;
 
 import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
@@ -14,7 +14,7 @@ import '../styles/main.css';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-        <!-- <ViewTransitions /> -->
+        {transition && <ViewTransitions />}
 	</head>
 	<body class:list={['relative min-h-screen leading-snug', bodyClass]}>
         <Header />

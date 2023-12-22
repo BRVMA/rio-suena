@@ -1,0 +1,46 @@
+---
+import Blog from '../../layouts/Blog.astro';
+import PostSnippet from '../../storyblok/PostSnippet.astro';
+import { useStoryblokApi } from '@storyblok/astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+    content_type: 'post',
+})
+
+const colors = ['#dee9ec', '#dce0dc', 'white'];
+
+const posts = data.stories.map((story, i) => {
+    return {
+        slug: story.slug,
+        title: story.name,
+        date: story.published_at ?? story.created_at,
+        image: story.content.image,
+        body: story.content.body,
+        color: colors[i % 3],
+    };
+})
+
+function isDoubleRow(n: number): boolean {
+    switch (n) {
+        case 0:
+        case 2:
+        case 5:
+            return true;
+        default:
+            return false;
+    }
+}
+---
+
+<Blog title="Blog">
+    <ul class="grid grid-cols-[repeat(1,_minmax(0,_448px))] lg:grid-cols-[repeat(2,_minmax(0,_448px))] 2xl:grid-cols-[repeat(3,_minmax(0,_448px))] auto-rows-[368px] gap-4">
+        {posts.map((post, i) => (
+            <li class:list={['w-full h-full', { 'row-span-2': isDoubleRow(i) }]}>
+                <PostSnippet blok={post} isDoubleRow={isDoubleRow(i)} />
+            </li>
+        ))}
+    </ul>
+</Blog>
