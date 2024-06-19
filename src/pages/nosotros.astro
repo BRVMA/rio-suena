@@ -1,12 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Heading from '../components/Heading.astro';
-import Credits from '../components/Credits.astro';
+import Layout from 'src/layouts/Layout.astro';
+import Heading from '@components/Heading.astro';
+import Credits from '@components/Credits.astro';
 import { Image } from 'astro:assets';
 
-import fig1 from '../img/fig-1.svg';
-import fig2 from '../img/fig-2.svg';
-import fig3 from '../img/fig-3.svg';
+import fig1 from '@assets/fig-1.svg';
+import fig2 from '@assets/fig-2.svg';
+import fig3 from '@assets/fig-3.svg';
+
+export const prerender = true;
 ---
 
 <Layout title="Nosotros" bodyClass="bg-crema text-gris">

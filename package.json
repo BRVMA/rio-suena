@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sb-types": "storyblok pull-components --space 1017508 && storyblok generate-typescript-typedefs --sourceFilePaths ./components.1017508.json --destinationFilePath ./src/storyblok/component-types-sb.d.ts && rm ./components.1017508.json"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",

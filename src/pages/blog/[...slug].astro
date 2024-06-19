@@ -1,7 +1,8 @@
 ---
-import { useStoryblokApi, storyblokEditable, renderRichText } from '@storyblok/astro';
+import { useStoryblokApi, storyblokEditable, renderRichText, type ISbStoryData } from '@storyblok/astro';
 import { Image } from 'astro:assets';
-import Blog from '../../layouts/Blog.astro';
+import Blog from 'src/layouts/Blog.astro';
+import type { PostStoryblok } from 'src/storyblok/component-types-sb';
 
 export async function getStaticPaths() {
     const storyblokApi = useStoryblokApi();
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
         content_type: 'post',
     });
 
-    return data.stories.map((story) => {
+    return data.stories.map((story: ISbStoryData<PostStoryblok>) => {
         return {
             params: { slug: story.slug },
         };

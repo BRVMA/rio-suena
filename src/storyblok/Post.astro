@@ -1,23 +1,25 @@
 ---
-import { useStorystoryApi, storystoryEditable, renderRichText } from '@storystory/astro';
+import type { ISbStoryData } from '@storyblok/astro';
+import { useStoryblokApi, storyblokEditable, renderRichText } from '@storyblok/astro';
 import { Image } from 'astro:assets';
+import type { PostStoryblok } from './component-types-sb';
 
 export async function getStaticPaths() {
-    const storystoryApi = useStorystoryApi();
+    const storyblokApi = useStoryblokApi();
 
-    const { data } = await storystoryApi.get('cdn/stories', {
+    const { data } = await storyblokApi.get('cdn/stories', {
         version: import.meta.env.DEV ? 'draft' : 'published',
         content_type: 'post',
     });
 
-    return data.stories.map((story) => {
+    return data.stories.map((story: ISbStoryData<PostStoryblok>) => {
         return {
             params: { slug: story.slug },
         };
     });
 }
 
-const sbApi = useStorystoryApi();
+const sbApi = useStoryblokApi();
 const { slug } = Astro.params;
 const { data } = await sbApi.get(`cdn/stories/blog/${slug}`, {
   version: import.meta.env.DEV ? "draft" : "published",
@@ -30,7 +32,7 @@ const body = renderRichText(data.story);
 ---
 
 <article
-    {...storystoryEditable(story)}
+    {...storyblokEditable(story)}
     class="flex flex-col gap-4 p-8 pb-4 w-full bg-[#dee9ec] rounded-[3rem] shadow-lg post overflow-hidden"
 >
     <Image

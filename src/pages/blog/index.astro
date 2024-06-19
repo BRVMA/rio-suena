@@ -1,7 +1,8 @@
 ---
-import Blog from '../../layouts/Blog.astro';
-import PostSnippet from '../../storyblok/PostSnippet.astro';
-import { useStoryblokApi } from '@storyblok/astro';
+import Blog from 'src/layouts/Blog.astro';
+import PostSnippet from 'src/storyblok/PostSnippet.astro';
+import { useStoryblokApi, type ISbStoryData } from '@storyblok/astro';
+import type { AssetStoryblok, PostStoryblok, RichtextStoryblok } from 'src/storyblok/component-types-sb';
 
 const storyblokApi = useStoryblokApi();
 
@@ -12,7 +13,16 @@ const { data } = await storyblokApi.get('cdn/stories', {
 
 const colors = ['#dee9ec', '#dce0dc', 'white'];
 
-const posts = data.stories.map((story, i) => {
+type Post = {
+    slug: string;
+    title: string;
+    date: string;
+    image: AssetStoryblok;
+    body: RichtextStoryblok;
+    color: string;
+};
+
+const posts: Post[] = data.stories.map((story: ISbStoryData<PostStoryblok>, i: number) => {
     return {
         slug: story.slug,
         title: story.name,

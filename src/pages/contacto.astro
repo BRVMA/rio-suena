@@ -1,13 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from 'src/layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Heading from '../components/Heading.astro';
+import Heading from '@components/Heading.astro';
 
-import fondo from '../img/fondo-contacto.png';
-import ig from '../img/rrss/ig.svg';
-import tiktok from '../img/rrss/tiktok.svg';
-import fb from '../img/rrss/fb.svg';
-import logo from '../img/logo/logo-blanco.svg';
+import fondo from '@assets/fondo-contacto.png';
+import ig from '@assets/rrss/ig.svg';
+import tiktok from '@assets/rrss/tiktok.svg';
+import fb from '@assets/rrss/fb.svg';
+import logo from '@assets/logo/logo-blanco.svg';
+
+export const prerender = true;
 ---
 
 <Layout title="Contacto" bodyClass="text-white">

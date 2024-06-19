@@ -1,13 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from 'src/layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import Credits from '../components/Credits.astro';
+import Credits from '@components/Credits.astro';
 
-import fondo from '../img/fondo-inicio.png';
-import logo from '../img/logo/logo-circular-blanco.svg';
-import ig from '../img/rrss/ig.svg';
-import tiktok from '../img/rrss/tiktok.svg';
-import fb from '../img/rrss/fb.svg';
+import fondo from '@assets/fondo-inicio.png';
+import logo from '@assets/logo/logo-circular-blanco.svg';
+import ig from '@assets/rrss/ig.svg';
+import tiktok from '@assets/rrss/tiktok.svg';
+import fb from '@assets/rrss/fb.svg';
+
+export const prerender = true;
 ---
 
 <Layout title="Inicio" bodyClass="lg:pt-12 text-white">
