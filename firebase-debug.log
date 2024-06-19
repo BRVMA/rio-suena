@@ -1,0 +1,312 @@
+[debug] [2024-06-19T01:01:40.178Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T01:01:40.180Z] Command:       /home/matiac/.nvm/versions/node/v20.10.0/bin/node /home/matiac/Dev/rio-suena/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-06-19T01:01:40.181Z] CLI Version:   13.11.2
+[debug] [2024-06-19T01:01:40.181Z] Platform:      linux
+[debug] [2024-06-19T01:01:40.181Z] Node Version:  v20.10.0
+[debug] [2024-06-19T01:01:40.182Z] Time:          Tue Jun 18 2024 21:01:40 GMT-0400 (Chile Standard Time)
+[debug] [2024-06-19T01:01:40.182Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T01:01:40.187Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T01:01:40.188Z] > authorizing via signed-in user (seriesielriosuena@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/matiac/Dev/rio-suena
+
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2024-06-19T01:01:52.201Z] setProjectAccount(/home/matiac/Dev/rio-suena, seriesielriosuena@gmail.com)
+[info] 
+[info] ✔  Using account: seriesielriosuena@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-06-19T01:02:50.059Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-06-19T01:02:50.060Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"web","name":"web"}
+[debug] [2024-06-19T01:02:50.491Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 400
+[debug] [2024-06-19T01:02:50.491Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":400,"message":"Request contains an invalid argument.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"project_id","description":"project_id must be at least 6 characters long"},{"field":"display_name","description":"project display name must be at least 4 characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2024-06-19T01:02:50.536Z] FirebaseError: HTTP Error: 400, Request contains an invalid argument.
+    at responseToError (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2024-06-19T01:03:14.634Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T01:03:14.636Z] Command:       /home/matiac/.nvm/versions/node/v20.10.0/bin/node /home/matiac/Dev/rio-suena/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-06-19T01:03:14.637Z] CLI Version:   13.11.2
+[debug] [2024-06-19T01:03:14.637Z] Platform:      linux
+[debug] [2024-06-19T01:03:14.637Z] Node Version:  v20.10.0
+[debug] [2024-06-19T01:03:14.638Z] Time:          Tue Jun 18 2024 21:03:14 GMT-0400 (Chile Standard Time)
+[debug] [2024-06-19T01:03:14.638Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T01:03:14.643Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T01:03:14.644Z] > authorizing via signed-in user (seriesielriosuena@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/matiac/Dev/rio-suena
+
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2024-06-19T01:03:16.437Z] setProjectAccount(/home/matiac/Dev/rio-suena, seriesielriosuena@gmail.com)
+[info] 
+[info] ✔  Using account: seriesielriosuena@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-06-19T01:03:28.282Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-06-19T01:03:28.283Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"web","name":"web"}
+[debug] [2024-06-19T01:03:29.493Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 400
+[debug] [2024-06-19T01:03:29.493Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":400,"message":"Request contains an invalid argument.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"project_id","description":"project_id must be at least 6 characters long"},{"field":"display_name","description":"project display name must be at least 4 characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2024-06-19T01:03:29.532Z] FirebaseError: HTTP Error: 400, Request contains an invalid argument.
+    at responseToError (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2024-06-19T01:03:44.356Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T01:03:44.359Z] Command:       /home/matiac/.nvm/versions/node/v20.10.0/bin/node /home/matiac/Dev/rio-suena/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-06-19T01:03:44.359Z] CLI Version:   13.11.2
+[debug] [2024-06-19T01:03:44.360Z] Platform:      linux
+[debug] [2024-06-19T01:03:44.360Z] Node Version:  v20.10.0
+[debug] [2024-06-19T01:03:44.360Z] Time:          Tue Jun 18 2024 21:03:44 GMT-0400 (Chile Standard Time)
+[debug] [2024-06-19T01:03:44.361Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T01:03:44.368Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T01:03:44.368Z] > authorizing via signed-in user (seriesielriosuena@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/matiac/Dev/rio-suena
+
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2024-06-19T01:03:45.365Z] setProjectAccount(/home/matiac/Dev/rio-suena, seriesielriosuena@gmail.com)
+[info] 
+[info] ✔  Using account: seriesielriosuena@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-06-19T01:04:16.022Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-06-19T01:04:16.023Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"web-rio-suena","name":"Web Si El Río Suena"}
+[debug] [2024-06-19T01:04:17.123Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 400
+[debug] [2024-06-19T01:04:17.123Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":400,"message":"field [display_name] has issue [project display name contains invalid characters]","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"display_name","description":"project display name contains invalid characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2024-06-19T01:04:17.167Z] FirebaseError: HTTP Error: 400, field [display_name] has issue [project display name contains invalid characters]
+    at responseToError (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2024-06-19T01:04:54.710Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T01:04:54.712Z] Command:       /home/matiac/.nvm/versions/node/v20.10.0/bin/node /home/matiac/Dev/rio-suena/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-06-19T01:04:54.713Z] CLI Version:   13.11.2
+[debug] [2024-06-19T01:04:54.713Z] Platform:      linux
+[debug] [2024-06-19T01:04:54.713Z] Node Version:  v20.10.0
+[debug] [2024-06-19T01:04:54.713Z] Time:          Tue Jun 18 2024 21:04:54 GMT-0400 (Chile Standard Time)
+[debug] [2024-06-19T01:04:54.713Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T01:04:54.719Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T01:04:54.720Z] > authorizing via signed-in user (seriesielriosuena@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/matiac/Dev/rio-suena
+
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2024-06-19T01:04:56.151Z] setProjectAccount(/home/matiac/Dev/rio-suena, seriesielriosuena@gmail.com)
+[info] 
+[info] ✔  Using account: seriesielriosuena@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-06-19T01:05:37.229Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-06-19T01:05:37.231Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"web-rio-suena","name":"web-rio-suena"}
+[debug] [2024-06-19T01:05:39.136Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2024-06-19T01:05:39.136Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.4790452971179087004"}
+[debug] [2024-06-19T01:05:39.138Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.4790452971179087004 [none]
+[debug] [2024-06-19T01:05:40.354Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.4790452971179087004 200
+[debug] [2024-06-19T01:05:40.354Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.4790452971179087004 {"name":"operations/cp.4790452971179087004","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","ready":true},"done":true,"error":{"code":9,"message":"Callers must accept Terms of Service","details":[{"@type":"type.googleapis.com/google.rpc.PreconditionFailure","violations":[{"type":"TOS","subject":"cloud","description":"Callers must accept Terms of Service"}]}]}}
+[debug] [2024-06-19T01:05:40.401Z] FirebaseError: Callers must accept Terms of Service
+    at OperationPoller.poll (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/operation-poller.js:24:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async createCloudProject (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/management/projects.js:186:29)
+    at async createFirebaseProjectAndLog (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/management/projects.js:45:9)
+    at async promptAndCreateNewProject (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/init/features/project.js:32:12)
+    at async doSetup (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/init/features/project.js:88:27)
+    at async init (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/init/index.js:39:9)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2024-06-19T01:05:45.147Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T01:05:45.151Z] Command:       /home/matiac/.nvm/versions/node/v20.10.0/bin/node /home/matiac/Dev/rio-suena/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-06-19T01:05:45.151Z] CLI Version:   13.11.2
+[debug] [2024-06-19T01:05:45.152Z] Platform:      linux
+[debug] [2024-06-19T01:05:45.152Z] Node Version:  v20.10.0
+[debug] [2024-06-19T01:05:45.152Z] Time:          Tue Jun 18 2024 21:05:45 GMT-0400 (Chile Standard Time)
+[debug] [2024-06-19T01:05:45.152Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T01:05:45.159Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T01:05:45.160Z] > authorizing via signed-in user (seriesielriosuena@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/matiac/Dev/rio-suena
+
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2024-06-19T01:05:46.251Z] setProjectAccount(/home/matiac/Dev/rio-suena, seriesielriosuena@gmail.com)
+[info] 
+[info] ✔  Using account: seriesielriosuena@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-06-19T01:06:01.239Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-06-19T01:06:01.240Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"web-rio-suena","name":"web-rio-suena"}
+[debug] [2024-06-19T01:06:03.407Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2024-06-19T01:06:03.408Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.5992548869900911005"}
+[debug] [2024-06-19T01:06:03.410Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5992548869900911005 [none]
+[debug] [2024-06-19T01:06:04.929Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5992548869900911005 200
+[debug] [2024-06-19T01:06:04.929Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5992548869900911005 {"name":"operations/cp.5992548869900911005","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","ready":true},"done":true,"error":{"code":9,"message":"Callers must accept Terms of Service","details":[{"@type":"type.googleapis.com/google.rpc.PreconditionFailure","violations":[{"type":"TOS","subject":"cloud","description":"Callers must accept Terms of Service"}]}]}}
+[debug] [2024-06-19T01:06:04.977Z] FirebaseError: Callers must accept Terms of Service
+    at OperationPoller.poll (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/operation-poller.js:24:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async createCloudProject (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/management/projects.js:186:29)
+    at async createFirebaseProjectAndLog (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/management/projects.js:45:9)
+    at async promptAndCreateNewProject (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/init/features/project.js:32:12)
+    at async doSetup (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/init/features/project.js:88:27)
+    at async init (/home/matiac/Dev/rio-suena/node_modules/.pnpm/firebase-tools@13.11.2_encoding@0.1.13/node_modules/firebase-tools/lib/init/index.js:39:9)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2024-06-19T01:10:07.477Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T01:10:07.480Z] Command:       /home/matiac/.nvm/versions/node/v20.10.0/bin/node /home/matiac/Dev/rio-suena/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-06-19T01:10:07.481Z] CLI Version:   13.11.2
+[debug] [2024-06-19T01:10:07.481Z] Platform:      linux
+[debug] [2024-06-19T01:10:07.481Z] Node Version:  v20.10.0
+[debug] [2024-06-19T01:10:07.482Z] Time:          Tue Jun 18 2024 21:10:07 GMT-0400 (Chile Standard Time)
+[debug] [2024-06-19T01:10:07.482Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T01:10:07.489Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T01:10:07.489Z] > authorizing via signed-in user (seriesielriosuena@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/matiac/Dev/rio-suena
+
+[info] 
+=== Account Setup
+[info] 
+[info] Which account do you want to use for this project? Choose an account or add a new one now
+[info] 
+[debug] [2024-06-19T01:10:11.323Z] setProjectAccount(/home/matiac/Dev/rio-suena, seriesielriosuena@gmail.com)
+[info] 
+[info] ✔  Using account: seriesielriosuena@gmail.com 
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-06-19T01:10:13.032Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-06-19T01:10:14.080Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-06-19T01:10:14.080Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project web-rio-suena (Web Si El Rio Suena) 
+[info] 
+=== Hosting Setup
+[debug] [2024-06-19T01:10:16.755Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-rio-suena [none]
+[debug] [2024-06-19T01:10:17.453Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/web-rio-suena 200
+[debug] [2024-06-19T01:10:17.454Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/web-rio-suena {"projectId":"web-rio-suena","projectNumber":"676946999272","displayName":"Web Si El Rio Suena","name":"projects/web-rio-suena","resources":{"hostingSite":"web-rio-suena"},"state":"ACTIVE","etag":"1_435deb9c-ffad-45ce-ad24-d75a44330bd8"}
+[info] 
+[info] i  Detected a .git folder at /home/matiac/Dev/rio-suena 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=63026869&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2024-06-19T01:53:07.068Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2024-06-19T01:53:07.069Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2024-06-19T01:53:07.808Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2024-06-19T01:53:07.808Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2024-06-19T01:53:07.823Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2024-06-19T01:53:08.422Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2024-06-19T01:53:08.423Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"matiac","id":16600354,"node_id":"MDQ6VXNlcjE2NjAwMzU0","avatar_url":"https://avatars.githubusercontent.com/u/16600354?v=4","gravatar_id":"","url":"https://api.github.com/users/matiac","html_url":"https://github.com/matiac","followers_url":"https://api.github.com/users/matiac/followers","following_url":"https://api.github.com/users/matiac/following{/other_user}","gists_url":"https://api.github.com/users/matiac/gists{/gist_id}","starred_url":"https://api.github.com/users/matiac/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/matiac/subscriptions","organizations_url":"https://api.github.com/users/matiac/orgs","repos_url":"https://api.github.com/users/matiac/repos","events_url":"https://api.github.com/users/matiac/events{/privacy}","received_events_url":"https://api.github.com/users/matiac/received_events","type":"User","site_admin":false,"name":"Matías Andrade Castro","company":null,"blog":"https://brvma.net","location":"Chile","email":"matiac@pm.me","hireable":null,"bio":"web dev","twitter_username":null,"public_repos":2,"public_gists":0,"followers":6,"following":9,"created_at":"2016-01-07T21:35:49Z","updated_at":"2024-04-21T23:25:10Z","private_gists":0,"total_private_repos":9,"owned_private_repos":9,"disk_usage":509230,"collaborators":4,"two_factor_authentication":true,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as matiac 
+[info] 
